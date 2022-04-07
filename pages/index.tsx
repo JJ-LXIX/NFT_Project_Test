@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Home: NextPage = () => {
   return (
@@ -10,7 +11,14 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Welcome to the NFT Project Test</h1>
+      <div className="flex flex-col h-screen space-y-10 justify-center items-center">
+        <h1>Click Below To Continue</h1>
+        <Link href="/nft/ape">
+          <button className="p-2 rounded-full border border-rose-400 w-30 lg:w-40 text-rose-500 text-xl font-extrabold tracking-wider">Enter</button>
+        </Link>
+      </div>
+      
+      
 
       
     </div>
