@@ -12,18 +12,29 @@ interface Props{
 
 const Home = ({collections} : Props) => {
   return (
-    <div className="">
+    <div className="max-w-7xl mx-auto flex min-h-screen flex-col py-20 px-10 2xl:px-0">
       <Head>
         <title>NFT Project Test</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex flex-col h-screen space-y-10 justify-center items-center">
-        <h1 className="text-white text-2xl">Click Below To Continue</h1>
-        <Link href="/nft/ape">
-          <button className="p-2 rounded-full border border-rose-500 w-30 lg:w-40 text-rose-500 text-xl font-extrabold tracking-wider">Enter</button>
-        </Link>
+      <h1 className="mb-10   text-4xl text-white font-extralight ">The <span className='font-extrabold  underline decoration-pink-600/50'>NOTMYART</span> NFT Market Place</h1>
+      
+      <main className='bg-[#222222] p-10  shadow-xl shadow-rose-400/20 rounded-3xl '>
+      <div className='grid space-x-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 '>
+      {collections.map((collection)=>(
+        <Link href={`/nft/${collection.slug.current}`}>
+        <div className='flex cursor-pointer flex-col items-center hover:scale-105 transition-all duration-200 space-y-4' >
+          <img className='h-96 w-60 rounded-2xl object-cover' src={urlFor(collection.mainImage).url()} alt="" />
+          <div className='p-5'>
+            <h2 className='text-3xl text-white'>{collection.title}</h2>
+            <p className='mt-2 text-sm text-gray-300'>{collection.description}</p>
+          </div>
+        </div>
+      </Link>
+      ))}
       </div>
+      </main>
     </div>
   )
 }
